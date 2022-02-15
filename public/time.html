@@ -9,13 +9,14 @@
     <h1>What day is it</h1>
     <div id="time"></div>
 
-   
-    <br>
-    <button id="tomorrow-btn">What day is it tomorrow?</button>
-    <br> <br>
+    <br />
+    <button id="tomorrow-btn" onclick="newButton()">
+      What day is it tomorrow?
+    </button>
+    <br />
     <div id="tomorrow"></div>
-    
-
+    <br />
+    <div id="tomorrow+1"></div>
 
     <script>
       const divtag = document.getElementById("time");
@@ -43,7 +44,20 @@
           dayOfWeekAsString(today.getDay() + 1);
       }
 
+      function divtagfunc2() {
+        divtag3 = document.getElementById("tomorrow+1").innerText =
+          dayOfWeekAsString(today.getDay() + 2);
+      }
+
       button.addEventListener("click", divtagfunc);
+
+      function newButton() {
+        const button1 = document.createElement("button");
+        const t = document.createTextNode("Ander after that?");
+        button1.appendChild(t);
+        document.body.appendChild(button1);
+        button1.addEventListener("click", divtagfunc2);
+      }
     </script>
   </body>
 </html>
